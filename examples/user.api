@@ -1,0 +1,56 @@
+syntax = "v1"
+
+info (
+    title: "User API"
+    version: "1.0"
+)
+
+import (
+    "shared.api"
+    "common/types.api"
+)
+
+type (
+    RegisterReq {
+        Username string `json:"username"`
+        Password string `json:"password"`
+        Email    string `json:"email,optional"`
+    }
+
+    RegisterResp {
+        Id int64 `json:"id"`
+    }
+
+    UserInfoReq {
+        Id            int64  `path:"id"`
+        TraceId       string `header:"X-Trace-Id,optional"`
+        IncludeOrders bool   `form:"includeOrders,default=false"`
+    }
+
+    UserInfoResp {
+        Id       int64    `json:"id"`
+        Username string   `json:"username"`
+        Roles    []string `json:"roles"`
+    }
+)
+
+service user-api {
+    @handler Register
+    post /user/register (RegisterReq) returns (RegisterResp)
+}
+
+service user-api {
+    @server (
+        jwt:        Auth
+        middleware: AccessLog,Cors
+        prefix:     /api/v1
+        timeout:    3s
+    )
+
+    // Private routes require JWT.
+    @handler GetUserInfo
+    get /user/:id (UserInfoReq) returns (UserInfoResp)
+
+    @handler DeleteUser
+    delete /user/:id (UserInfoReq)
+}

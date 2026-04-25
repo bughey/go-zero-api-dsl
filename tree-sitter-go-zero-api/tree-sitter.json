@@ -1,0 +1,37 @@
+{
+  "grammars": [
+    {
+      "name": "go_zero_api",
+      "camelcase": "GoZeroApi",
+      "scope": "source.go-zero-api",
+      "path": ".",
+      "file-types": [
+        "api"
+      ],
+      "first-line-regex": "^\\s*syntax\\s*=\\s*\"v1\""
+    }
+  ],
+  "metadata": {
+    "version": "0.0.1",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for the go-zero API DSL.",
+    "authors": [
+      {
+        "name": "hey"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/your-name/go-zero-api-dsl"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": false,
+    "java": false,
+    "node": false,
+    "python": false,
+    "rust": false,
+    "swift": false,
+    "zig": false
+  }
+}

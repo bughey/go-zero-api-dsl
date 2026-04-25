@@ -1,0 +1,42 @@
+==================
+Types
+==================
+
+type (
+    SearchReq {
+        Keyword string `form:"keyword"`
+        Page    int    `form:"page,optional"`
+        Roles   []string `json:"roles"`
+    }
+)
+
+type UserResp {
+    Id int64 `json:"id"`
+}
+
+---
+
+(source_file
+  (type_declaration
+    (type_group
+      (type_spec
+        name: (type_identifier)
+        (field_declaration
+          name: (identifier)
+          type: (field_type)
+          tag: (struct_tag))
+        (field_declaration
+          name: (identifier)
+          type: (field_type)
+          tag: (struct_tag))
+        (field_declaration
+          name: (identifier)
+          type: (field_type)
+          tag: (struct_tag)))))
+  (type_declaration
+    (type_spec
+      name: (type_identifier)
+      (field_declaration
+        name: (identifier)
+        type: (field_type)
+        tag: (struct_tag)))))

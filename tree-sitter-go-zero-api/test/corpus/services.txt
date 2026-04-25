@@ -1,0 +1,48 @@
+==================
+Services
+==================
+
+service user-api {
+    @server (
+        jwt: Auth
+        prefix: /api/v1
+    )
+
+    @handler GetUser
+    get /user/:id (UserReq) returns (UserResp)
+
+    @handler Ping
+    head /ping ()
+}
+
+---
+
+(source_file
+  (service_block
+    name: (service_identifier)
+    (server_annotation
+      (key_value_property
+        key: (identifier)
+        value: (literal_value))
+      (key_value_property
+        key: (identifier)
+        value: (literal_value)))
+    (handler_annotation
+      name: (identifier))
+    (route_declaration
+      method: (http_method)
+      path: (route_path
+        (path_segment)
+        (path_parameter))
+      request: (type_reference
+        (type_identifier))
+      response: (returns_clause
+        (type_reference
+          (type_identifier))))
+    (handler_annotation
+      name: (identifier))
+    (route_declaration
+      method: (http_method)
+      path: (route_path
+        (path_segment))
+      request: (type_reference))))

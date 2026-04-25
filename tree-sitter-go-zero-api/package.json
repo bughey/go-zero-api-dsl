@@ -1,0 +1,32 @@
+{
+  "name": "tree-sitter-go-zero-api",
+  "version": "0.0.1",
+  "description": "Tree-sitter grammar for the go-zero API DSL.",
+  "license": "MIT",
+  "keywords": [
+    "tree-sitter",
+    "go-zero",
+    "api",
+    "dsl"
+  ],
+  "files": [
+    "grammar.js",
+    "src"
+  ],
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test",
+    "parse:example": "tree-sitter parse ../examples/user.api"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.25.0"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.go-zero-api",
+      "file-types": [
+        "api"
+      ]
+    }
+  ]
+}

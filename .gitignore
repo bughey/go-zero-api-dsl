@@ -121,3 +121,9 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,visualstudiocode,go,rust
 
 .helloagents/replay/*.jsonl
+.helloagents/.ralph-*.json
+
+# Node / Tree-sitter local tooling
+node_modules/
+.tree-sitter/
+grammars/

@@ -1,0 +1,36 @@
+==================
+Declarations
+==================
+
+syntax = "v1"
+
+info (
+    title: "User API"
+    version: "1.0"
+)
+
+import "shared.api"
+
+import (
+    "user.api"
+    "order.api"
+)
+
+---
+
+(source_file
+  (syntax_declaration
+    version: (string))
+  (info_block
+    (key_value_property
+      key: (identifier)
+      value: (string))
+    (key_value_property
+      key: (identifier)
+      value: (string)))
+  (import_declaration
+    path: (string))
+  (import_declaration
+    (import_block
+      path: (string)
+      path: (string))))

@@ -1,0 +1,12 @@
+id = "go-zero-api-dsl"
+name = "Go Zero API DSL"
+version = "0.0.1"
+schema_version = 1
+authors = ["hey"]
+description = "Syntax highlighting for go-zero API DSL files in Zed."
+repository = "https://github.com/your-name/go-zero-api-dsl"
+
+[grammars.go_zero_api]
+repository = "file:///Users/hey/dev/code/go/gozero/code/zed-go-zero-api-dsl"
+rev = "HEAD"
+path = "tree-sitter-go-zero-api"
