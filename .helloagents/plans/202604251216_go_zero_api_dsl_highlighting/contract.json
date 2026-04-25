@@ -1,0 +1,39 @@
+{
+  "updatedAt": "2026-04-25T04:19:09.586Z",
+  "version": 1,
+  "source": "~plan",
+  "originCommand": "plan",
+  "verifyMode": "test-first",
+  "reviewerFocus": [
+    "Zed manifest 与 language config 是否符合官方结构",
+    "Tree-sitter grammar 节点是否便于 query 维护",
+    "高亮 capture 是否使用 Zed 支持的标准名称"
+  ],
+  "testerFocus": [
+    "Tree-sitter corpus 覆盖 syntax、info、import、type、service、@server、@handler、HTTP route 和 returns",
+    "tree-sitter parse 示例 .api 文件无异常错误节点",
+    "Zed dev extension 能识别 .api 文件并加载高亮、括号、缩进和 outline 查询"
+  ],
+  "ui": {
+    "required": false,
+    "designContract": false,
+    "sourcePriority": [],
+    "styleAdvisor": {
+      "required": false,
+      "reason": "",
+      "focus": []
+    },
+    "visualValidation": {
+      "required": false,
+      "reason": "",
+      "screens": [],
+      "states": []
+    }
+  },
+  "advisor": {
+    "required": false,
+    "reason": "",
+    "focus": [],
+    "preferredSources": []
+  }
+}
