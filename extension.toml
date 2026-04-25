@@ -8,5 +8,5 @@ repository = "https://github.com/bughey/go-zero-api-dsl"
 
 [grammars.go_zero_api]
 repository = "https://github.com/bughey/go-zero-api-dsl"
-rev = "0563f802f556eedd1bbad1e50c46a2ffc842fa91"
+rev = "025e977855708be1b71398045f915beffcaf519b"
 path = "tree-sitter-go-zero-api"
