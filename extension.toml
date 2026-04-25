@@ -7,6 +7,6 @@ description = "Syntax highlighting for go-zero API DSL files in Zed."
 repository = "https://github.com/bughey/go-zero-api-dsl"
 
 [grammars.go_zero_api]
-repository = "file:///Users/hey/dev/code/go/gozero/code/zed-go-zero-api-dsl"
-rev = "e1c645cae85f97a885da406e35ce5c97589cc6f1"
+repository = "https://github.com/bughey/go-zero-api-dsl"
+rev = "0563f802f556eedd1bbad1e50c46a2ffc842fa91"
 path = "tree-sitter-go-zero-api"

@@ -19,9 +19,9 @@ Zed language extension for go-zero `.api` DSL files. It provides syntax parsing,
 4. Select this repository directory.
 5. Open `examples/user.api` or another go-zero `.api` file.
 
-The current `extension.toml` uses a local `file://` repository path, a pinned Git commit SHA, and `path = "tree-sitter-go-zero-api"` for development on this machine. Before publishing or moving the repository, update `[grammars.go_zero_api]` to the final grammar repository URL and pinned commit SHA, or to a new local absolute `file://` path.
+The current `extension.toml` uses `https://github.com/bughey/go-zero-api-dsl`, a pinned Git commit SHA, and `path = "tree-sitter-go-zero-api"`. If the grammar changes, commit and push the changes, then update `[grammars.go_zero_api].rev` to the new commit SHA.
 
-Because Zed resolves grammars through Git, the grammar files must be committed before installing the dev extension. If Zed reports `failed to compile grammar 'go_zero_api'`, commit the current changes and reinstall the dev extension.
+Because Zed resolves grammars through Git, the grammar files must be committed and reachable from the configured repository before installing the dev extension. If Zed reports `failed to compile grammar 'go_zero_api'`, confirm that `rev` points to a commit containing `tree-sitter-go-zero-api/grammar.js`.
 
 ## Format on save
 
