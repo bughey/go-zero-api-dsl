@@ -23,6 +23,48 @@ The current `extension.toml` uses a local `file://` repository path, a pinned Gi
 
 Because Zed resolves grammars through Git, the grammar files must be committed before installing the dev extension. If Zed reports `failed to compile grammar 'go_zero_api'`, commit the current changes and reinstall the dev extension.
 
+## Format on save
+
+This extension does not bundle a formatter. To format `.api` files on save, configure Zed to call `goctl api format --stdin` as an external formatter.
+
+Add this to your Zed user settings or project `.zed/settings.json`:
+
+```json
+{
+  "languages": {
+    "Go Zero API": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "goctl",
+          "arguments": ["api", "format", "--stdin"]
+        }
+      }
+    }
+  }
+}
+```
+
+If Zed cannot find `goctl`, use an absolute path:
+
+```json
+{
+  "languages": {
+    "Go Zero API": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "/path/to/goctl",
+          "arguments": ["api", "format", "--stdin"]
+        }
+      }
+    }
+  }
+}
+```
+
+`goctl api format --stdin` reads the buffer content from standard input and writes the formatted result to standard output, which matches Zed's external formatter contract.
+
 ## Development
 
 Generate the parser:
@@ -60,7 +102,7 @@ The parse/query commands may warn if the global Tree-sitter CLI config has no pa
 
 ## Scope
 
-This extension intentionally does not include LSP support, completion, diagnostics, formatting, or `goctl` integration. Those can be added later without changing the grammar-first MVP.
+This extension intentionally does not include LSP support, completion, diagnostics, or a bundled formatter. Save-time formatting can be configured through Zed settings and `goctl api format --stdin`.
 
 ## License
 
