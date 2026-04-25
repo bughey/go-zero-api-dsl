@@ -10,11 +10,11 @@
 - 已新增 Zed language extension：`extension.toml`、`languages/go-zero-api/config.toml`、`languages/go-zero-api/*.scm`。
 - 已新增 Tree-sitter grammar：`tree-sitter-go-zero-api/grammar.js`、`tree-sitter-go-zero-api/tree-sitter.json`、生成的 `src/` parser 文件和 corpus 测试。
 - 已新增示例与文档：`examples/user.api`、`README.md`、`LICENSE`。
-- `extension.toml` 当前使用本机仓库 `file://` 路径、`rev = "HEAD"` 与 `path = "tree-sitter-go-zero-api"`；Zed 通过 Git 解析 grammar，安装 dev extension 前必须先提交 grammar 文件；发布或移动仓库前需要改成最终远程仓库 URL 和固定 commit SHA，或新的本机绝对路径。
+- `extension.toml` 当前使用本机仓库 `file://` 路径、固定提交 `e1c645cae85f97a885da406e35ce5c97589cc6f1` 与 `path = "tree-sitter-go-zero-api"`；Zed 通过 Git 解析 grammar，不能使用 `rev = "HEAD"`，发布或移动仓库前需要改成最终远程仓库 URL 和固定 commit SHA，或新的本机绝对路径。
 - 验证已通过：`extension.toml` TOML 解析校验、`tree-sitter generate`、`tree-sitter test`、`tree-sitter parse ../examples/user.api`、四个 query 文件的 CLI 校验。
 
 ## 下一步
-先提交当前 grammar/extension 变更，再在 Zed 中运行 `zed: install dev extension` 并选择当前仓库，打开 `examples/user.api` 做人工视觉检查；若需要继续收尾，执行 `~verify`。
+先使用固定 rev 的 `extension.toml` 重新安装 dev extension；若修改 grammar 后，需要提交并同步更新 `rev`。
 
 ## 阻塞项
 Zed 内人工检查无法在当前 CLI 中代替执行。
